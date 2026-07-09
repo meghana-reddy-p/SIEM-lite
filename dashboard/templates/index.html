@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIEM-Lite Dashboard</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        setTimeout(() => {
+            location.reload();
+        }, 5000);
+    </script>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            background:#0b1120;
+            color:white;
+            font-family:Arial, Helvetica, sans-serif;
+            padding:30px;
+        }
+
+        h1{
+            margin-bottom:30px;
+            color:#38bdf8;
+            font-size:40px;
+            text-align: center;
+        }
+
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+            margin-bottom:40px;
+        }
+
+        .card{
+            background:#111827;
+            padding:25px;
+            border-radius:18px;
+            box-shadow:0 0 15px rgba(56,189,248,0.15);
+            transition:0.3s;
+            border:1px solid rgba(56,189,248,0.1);
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 0 25px rgba(56,189,248,0.35);
+        }
+
+        .card h2{
+            color:#cbd5e1;
+            margin-bottom:15px;
+            font-size:22px;
+        }
+
+        .card h1{
+            font-size:50px;
+            color:#38bdf8;
+        }
+
+        .section-title{
+            margin-top:35px;
+            margin-bottom:20px;
+            color:#38bdf8;
+            font-size:32px;
+        }
+
+        .alerts{
+            margin-bottom:40px;
+        }
+
+        .alert{
+            padding:18px;
+            border-radius:12px;
+            margin-bottom:15px;
+            font-weight:bold;
+            font-size:16px;
+        }
+
+        .high{
+            background:#7f1d1d;
+            border-left:6px solid red;
+        }
+
+        .medium{
+            background:#78350f;
+            border-left:6px solid orange;
+        }
+
+        .low{
+            background:#064e3b;
+            border-left:6px solid lime;
+        }
+
+        .logs-container{
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+        }
+
+        .log{
+            background:#111827;
+            padding:20px;
+            border-radius:15px;
+            border-left:5px solid #38bdf8;
+            box-shadow:0 0 12px rgba(56,189,248,0.12);
+            transition:0.3s;
+        }
+
+        .log:hover{
+            transform:scale(1.01);
+            box-shadow:0 0 18px rgba(56,189,248,0.25);
+        }
+
+        .log p{
+            margin:8px 0;
+            color:#e2e8f0;
+            font-size:16px;
+            line-height:1.5;
+        }
+
+        .label{
+            color:#38bdf8;
+            font-weight:bold;
+        }
+
+        .severity-badge{
+            padding:5px 12px;
+            border-radius:8px;
+            font-weight:bold;
+            font-size:14px;
+            display:inline-block;
+        }
+
+        .severity-high{
+            background:#dc2626;
+            color:white;
+        }
+
+        .severity-medium{
+            background:#f59e0b;
+            color:black;
+        }
+
+        .severity-low{
+            background:#16a34a;
+            color:white;
+        }
+
+        .severity-info{
+            background:#2563eb;
+            color:white;
+        }
+
+        .mitre-badge{
+
+            background:#7c3aed;
+            color:white;
+
+            padding:5px 12px;
+
+            border-radius:8px;
+
+            font-weight:bold;
+
+            font-size:13px;
+
+            display:inline-block;
+
+            margin-top:5px;
+        }
+
+        .empty{
+            color:gray;
+            font-size:18px;
+        }
+
+        /* CHART SECTION */
+
+        .chart-container{
+            background:#111827;
+            padding:25px;
+            border-radius:18px;
+            margin-bottom:40px;
+            box-shadow:0 0 15px rgba(56,189,248,0.12);
+            border:1px solid rgba(56,189,248,0.1);
+        }
+
+        canvas{
+            width:100% !important;
+            max-height:400px;
+        }
+
+        /* THREAT LEVEL BANNER */
+
+        .threat-banner{
+
+            padding:18px;
+
+            border-radius:16px;
+
+            font-size:22px;
+
+            font-weight:bold;
+
+            margin-bottom:30px;
+
+            text-align:center;
+
+            letter-spacing:1px;
+
+            box-shadow:0 0 18px rgba(255,255,255,0.08);
+        }
+
+        .safe-banner{
+
+            background:rgba(34,197,94,0.18);
+
+            border:2px solid #22c55e;
+
+            color:#4ade80;
+        }
+
+        .warning-banner{
+
+            background:rgba(245,158,11,0.18);
+
+            border:2px solid #f59e0b;
+
+            color:#fbbf24;
+        }
+
+        .critical-banner{
+
+            background:rgba(239,68,68,0.18);
+
+            border:2px solid #ef4444;
+
+            color:#f87171;
+
+            animation:pulse 1.5s infinite;
+        }
+
+        @keyframes pulse{
+
+            0%{
+                box-shadow:0 0 10px rgba(239,68,68,0.3);
+            }
+
+            50%{
+                box-shadow:0 0 30px rgba(239,68,68,0.7);
+            }
+
+            100%{
+                box-shadow:0 0 10px rgba(239,68,68,0.3);
+            }
+
+        }
+        .download-btn{
+
+    display:inline-block;
+
+    margin-bottom:25px;
+
+    background:#38bdf8;
+
+    color:black;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.download-btn:hover{
+
+    background:#0ea5e9;
+
+    transform:scale(1.05);
+}
+
+    </style>
+
+</head>
+
+<body>
+
+    <h1>SIEM-LITE DASHBOARD</h1>
+    <a href="/download-report" class="download-btn">
+    Download Incident Report
+    </a>
+       <!-- AI PREDICTION -->
+
+<div class="card" style="
+margin-bottom:30px;
+border:2px solid #38bdf8;
+background:#111827;
+text-align:center;
+">
+
+    <h2 style="
+    color:#38bdf8;
+    margin-bottom:15px;
+    ">
+        AI Threat Prediction
+    </h2>
+
+    <h1 style="
+    font-size:32px;
+    color:#f87171;
+    ">
+        {{ ai_prediction }}
+    </h1>
+
+</div>
+    <!-- THREAT LEVEL -->
+
+    {% if stats.threat_score >= 70 %}
+
+        <div class="threat-banner critical-banner">
+            🔴 SYSTEM THREAT LEVEL: CRITICAL
+        </div>
+
+    {% elif stats.threat_score >= 30 %}
+
+        <div class="threat-banner warning-banner">
+            🟡 SYSTEM THREAT LEVEL: WARNING
+        </div>
+
+    {% else %}
+
+        <div class="threat-banner safe-banner">
+            🟢 SYSTEM THREAT LEVEL: SAFE
+        </div>
+
+    {% endif %}
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Successful Logins</h2>
+            <h1>{{ stats.success }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Failed Logins</h2>
+            <h1>{{ stats.failed }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Admin Logins</h2>
+            <h1>{{ stats.admin }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Total Logs</h2>
+            <h1>{{ logs|length }}</h1>
+        </div>
+
+        <div class="card">
+            <h2>Critical Alerts</h2>
+
+            <h1>
+                {% if alerts %}
+                    {{ alerts|length }}
+                {% else %}
+                    0
+                {% endif %}
+            </h1>
+
+        </div>
+
+        <div class="card">
+            <h2>Threat Score</h2>
+            <h1>{{ stats.threat_score }}</h1>
+        </div>
+
+    </div>
+
+    <!-- ALERTS -->
+
+    <h2 class="section-title">Alerts</h2>
+
+    <div class="alerts">
+
+        {% if alerts %}
+
+            {% for alert in alerts %}
+
+                {% if "HIGH" in alert or "CRITICAL" in alert %}
+
+                    <div class="alert high">
+                        {{ alert }}
+                    </div>
+
+                {% elif "MEDIUM" in alert %}
+
+                    <div class="alert medium">
+                        {{ alert }}
+                    </div>
+
+                {% else %}
+
+                    <div class="alert low">
+                        {{ alert }}
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        {% else %}
+
+            <p class="empty">No active alerts</p>
+
+        {% endif %}
+
+    </div>
+
+    <!-- ATTACK TIMELINE -->
+
+    <h2 class="section-title">Attack Timeline</h2>
+
+    <div class="logs-container">
+
+        {% for item in timeline %}
+
+            <div class="log">
+
+                <p>
+                    <span class="label">Time:</span>
+                    {{ item.time }}
+                </p>
+
+                <p>
+                    <span class="label">Event:</span>
+                    {{ item.event }}
+                </p>
+
+                <p>
+
+                    <span class="label">Severity:</span>
+
+                    {% if item.severity == "HIGH" %}
+
+                        <span class="severity-badge severity-high">
+                            {{ item.severity }}
+                        </span>
+
+                    {% elif item.severity == "MEDIUM" %}
+
+                        <span class="severity-badge severity-medium">
+                            {{ item.severity }}
+                        </span>
+
+                    {% elif item.severity == "CRITICAL" %}
+
+                        <span class="severity-badge severity-high">
+                            {{ item.severity }}
+                        </span>
+
+                    {% else %}
+
+                        <span class="severity-badge severity-low">
+                            {{ item.severity }}
+                        </span>
+
+                    {% endif %}
+
+                </p>
+
+                <p>
+
+                    <span class="label">MITRE ATT&CK:</span>
+
+                    <span class="mitre-badge">
+                        {{ item.mitre }}
+                    </span>
+
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- CHARTS -->
+
+    <h2 class="section-title">Activity Charts</h2>
+
+    <div class="chart-container">
+
+        <canvas id="securityChart"></canvas>
+
+    </div>
+
+    <!-- RECENT LOGS -->
+
+    <h2 class="section-title">Recent Logs</h2>
+
+    <div class="logs-container">
+
+        {% for log in logs %}
+
+            <div class="log">
+
+                <p>
+                    <span class="label">Time:</span>
+                    {{ log.Time }}
+                </p>
+
+                <p>
+                    <span class="label">Event ID:</span>
+                    {{ log.EventID }}
+                </p>
+
+                <p>
+                    <span class="label">Event:</span>
+                    {{ log.Message }}
+                </p>
+
+                <p>
+
+                    <span class="label">Severity:</span>
+
+                    {% if log.Severity == "HIGH" %}
+
+                        <span class="severity-badge severity-high">
+                            {{ log.Severity }}
+                        </span>
+
+                    {% elif log.Severity == "MEDIUM" %}
+
+                        <span class="severity-badge severity-medium">
+                            {{ log.Severity }}
+                        </span>
+
+                    {% elif log.Severity == "LOW" %}
+
+                        <span class="severity-badge severity-low">
+                            {{ log.Severity }}
+                        </span>
+
+                    {% else %}
+
+                        <span class="severity-badge severity-info">
+                            {{ log.Severity }}
+                        </span>
+
+                    {% endif %}
+
+                </p>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- CHART SCRIPT -->
+
+    <script>
+
+        const ctx = document.getElementById('securityChart');
+
+        new Chart(ctx, {
+
+            type: 'line',
+
+            data: {
+
+                labels: JSON.parse('{{ chart_labels | tojson | safe }}'),
+
+                datasets: [
+
+                    {
+                        label: 'Successful Logins',
+
+                        data: JSON.parse('{{ success_chart | tojson | safe }}'),
+
+                        borderColor: '#22c55e',
+
+                        backgroundColor: 'rgba(34,197,94,0.2)',
+
+                        tension: 0.4,
+
+                        fill: true
+                    },
+
+                    {
+                        label: 'Failed Logins',
+
+                        data: JSON.parse('{{ failed_chart | tojson | safe }}'),
+
+                        borderColor: '#ef4444',
+
+                        backgroundColor: 'rgba(239,68,68,0.2)',
+
+                        tension: 0.4,
+
+                        fill: true
+                    },
+
+                    {
+                        label: 'Admin Logins',
+
+                        data: JSON.parse('{{ admin_chart | tojson | safe }}'),
+
+                        borderColor: '#f59e0b',
+
+                        backgroundColor: 'rgba(245,158,11,0.2)',
+
+                        tension: 0.4,
+
+                        fill: true
+                    }
+
+                ]
+            },
+
+            options: {
+
+                responsive: true,
+
+                plugins: {
+
+                    legend: {
+
+                        labels: {
+                            color: 'white',
+
+                            font: {
+                                size: 14
+                            }
+                        }
+
+                    }
+
+                },
+
+                scales: {
+
+                    x: {
+
+                        ticks: {
+                            color: 'white'
+                        },
+
+                        grid: {
+                            color: 'rgba(255,255,255,0.08)'
+                        }
+
+                    },
+
+                    y: {
+
+                        beginAtZero: true,
+
+                        ticks: {
+                            color: 'white'
+                        },
+
+                        grid: {
+                            color: 'rgba(255,255,255,0.08)'
+                        }
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

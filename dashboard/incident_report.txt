@@ -1,0 +1,35 @@
+===== SIEM-Lite Incident Report =====
+
+Generated Time: 2026-05-10 15:54:44.575666
+
+===== Threat Summary =====
+Successful Logins: 4
+Failed Logins: 0
+Admin Logins: 5
+Threat Score: 100
+AI Prediction: Critical Threat Activity
+
+===== Alerts =====
+- MEDIUM ALERT: Admin Login Detected
+- LOW ALERT: Successful Login
+- HIGH ALERT: Credential Access Detected
+- HIGH ALERT: Suspicious Process Running - powershell.exe (PID: 3204)
+- HIGH ALERT: Suspicious Process Running - powershell.exe (PID: 5032)
+- HIGH ALERT: Suspicious Process Running - powershell.exe (PID: 11628)
+- HIGH ALERT: Suspicious Process Running - powershell.exe (PID: 17632)
+
+===== Attack Timeline =====
+2026-05-10 15:54:44 | Suspicious Process - powershell.exe | HIGH | Command and Scripting Interpreter
+2026-05-10 15:54:44 | Suspicious Process - powershell.exe | HIGH | Command and Scripting Interpreter
+2026-05-10 15:54:44 | Suspicious Process - powershell.exe | HIGH | Command and Scripting Interpreter
+2026-05-10 15:54:44 | Suspicious Process - powershell.exe | HIGH | Command and Scripting Interpreter
+2026-05-10 15:54:42 | Administrator Login | MEDIUM | Privilege Escalation
+2026-05-10 15:54:42 | Successful Login | LOW | Valid Accounts
+2026-05-10 15:54:42 | Administrator Login | MEDIUM | Privilege Escalation
+2026-05-10 15:54:42 | Successful Login | LOW | Valid Accounts
+2026-05-10 15:54:42 | Administrator Login | MEDIUM | Privilege Escalation
+2026-05-10 15:54:42 | Successful Login | LOW | Valid Accounts
+2026-05-10 15:54:42 | Administrator Login | MEDIUM | Privilege Escalation
+2026-05-10 15:54:42 | Successful Login | LOW | Valid Accounts
+2026-05-10 15:54:42 | Credential Manager Access | HIGH | Credential Access
+2026-05-10 15:54:42 | Administrator Login | MEDIUM | Privilege Escalation

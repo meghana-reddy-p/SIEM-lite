@@ -1,0 +1,22 @@
+ Admin Privilege Login
+ Login Success
+Failed Login Attempt
+ Admin Privilege Login
+ Login Success
+Failed Login Attempt
+ Brute Force Attack (within 60 sec)
+ Admin Privilege Login
+ Login Success
+Failed Login Attempt
+ Brute Force Attack (within 60 sec)
+ Admin Privilege Login
+ Login Success
+Failed Login Attempt
+ Admin Privilege Login
+ Login Success
+ Admin Privilege Login
+ Login Success
+ Admin Privilege Login
+ Login Success
+Admin Privilege Login
+Login Success

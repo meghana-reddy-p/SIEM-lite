@@ -1,0 +1,344 @@
+{
+    "logs": [
+        {
+            "Time": "2026-05-12 13:33:37",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:33:27",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:33:24",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:33:19",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:33:11",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:33:03",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:59",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:54",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:47",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:42",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:34",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:32",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:31",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:29",
+            "EventID": "4634",
+            "Message": "User Logged Off",
+            "Severity": "LOW"
+        },
+        {
+            "Time": "2026-05-12 13:32:29",
+            "EventID": "4672",
+            "Message": "Administrator Login",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:29",
+            "EventID": "4624",
+            "Message": "Successful Login",
+            "Severity": "LOW"
+        },
+        {
+            "Time": "2026-05-12 13:32:29",
+            "EventID": "4648",
+            "Message": "Explicit Credential Login",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:25",
+            "EventID": "4625",
+            "Message": "Failed Login Attempt",
+            "Severity": "HIGH"
+        },
+        {
+            "Time": "2026-05-12 13:32:22",
+            "EventID": "4625",
+            "Message": "Failed Login Attempt",
+            "Severity": "HIGH"
+        },
+        {
+            "Time": "2026-05-12 13:32:18",
+            "EventID": "4672",
+            "Message": "Administrator Login",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:18",
+            "EventID": "4624",
+            "Message": "Successful Login",
+            "Severity": "LOW"
+        },
+        {
+            "Time": "2026-05-12 13:32:30",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:16",
+            "EventID": "4672",
+            "Message": "Administrator Login",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:23",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:19",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:18",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:17",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:32:16",
+            "EventID": "4624",
+            "Message": "Successful Login",
+            "Severity": "LOW"
+        },
+        {
+            "Time": "2026-05-12 13:32:05",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:56",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:51",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:51",
+            "EventID": "4672",
+            "Message": "Administrator Login",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:51",
+            "EventID": "4624",
+            "Message": "Successful Login",
+            "Severity": "LOW"
+        },
+        {
+            "Time": "2026-05-12 13:31:51",
+            "EventID": "5379",
+            "Message": "Credential Manager Access",
+            "Severity": "HIGH"
+        },
+        {
+            "Time": "2026-05-12 13:31:47",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:37",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:28",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:26",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:16",
+            "EventID": "4688",
+            "Message": "New Process Created",
+            "Severity": "MEDIUM"
+        },
+        {
+            "Time": "2026-05-12 13:31:16",
+            "EventID": "4672",
+            "Message": "Administrator Login",
+            "Severity": "MEDIUM"
+        }
+    ],
+    "alerts": [
+        "MEDIUM ALERT: Admin Login Detected",
+        "LOW ALERT: Successful Login",
+        "HIGH ALERT: Failed Login Attempt",
+        "HIGH ALERT: Credential Access Detected",
+        "CRITICAL ALERT: Brute Force Attack Detected",
+        "HIGH ALERT: Suspicious Process Running - powershell.exe"
+    ],
+    "stats": {
+        "success": 4,
+        "failed": 2,
+        "admin": 5,
+        "threat_score": 92
+    },
+    "timeline": [
+        {
+            "time": "2026-05-12 13:33:49",
+            "event": "Brute Force Attack Detected",
+            "severity": "CRITICAL",
+            "mitre": "Brute Force"
+        },
+        {
+            "time": "2026-05-12 13:33:49",
+            "event": "Suspicious Process - powershell.exe",
+            "severity": "HIGH",
+            "mitre": "Command and Scripting Interpreter"
+        },
+        {
+            "time": "2026-05-12 13:32:29",
+            "event": "Administrator Login",
+            "severity": "MEDIUM",
+            "mitre": "Privilege Escalation"
+        },
+        {
+            "time": "2026-05-12 13:32:29",
+            "event": "Successful Login",
+            "severity": "LOW",
+            "mitre": "Valid Accounts"
+        },
+        {
+            "time": "2026-05-12 13:32:25",
+            "event": "Failed Login Attempt",
+            "severity": "HIGH",
+            "mitre": "Brute Force"
+        },
+        {
+            "time": "2026-05-12 13:32:22",
+            "event": "Failed Login Attempt",
+            "severity": "HIGH",
+            "mitre": "Brute Force"
+        },
+        {
+            "time": "2026-05-12 13:32:18",
+            "event": "Administrator Login",
+            "severity": "MEDIUM",
+            "mitre": "Privilege Escalation"
+        },
+        {
+            "time": "2026-05-12 13:32:18",
+            "event": "Successful Login",
+            "severity": "LOW",
+            "mitre": "Valid Accounts"
+        },
+        {
+            "time": "2026-05-12 13:32:16",
+            "event": "Administrator Login",
+            "severity": "MEDIUM",
+            "mitre": "Privilege Escalation"
+        },
+        {
+            "time": "2026-05-12 13:32:16",
+            "event": "Successful Login",
+            "severity": "LOW",
+            "mitre": "Valid Accounts"
+        },
+        {
+            "time": "2026-05-12 13:31:51",
+            "event": "Administrator Login",
+            "severity": "MEDIUM",
+            "mitre": "Privilege Escalation"
+        },
+        {
+            "time": "2026-05-12 13:31:51",
+            "event": "Successful Login",
+            "severity": "LOW",
+            "mitre": "Valid Accounts"
+        },
+        {
+            "time": "2026-05-12 13:31:51",
+            "event": "Credential Manager Access",
+            "severity": "HIGH",
+            "mitre": "Credential Access"
+        },
+        {
+            "time": "2026-05-12 13:31:16",
+            "event": "Administrator Login",
+            "severity": "MEDIUM",
+            "mitre": "Privilege Escalation"
+        }
+    ]
+}
